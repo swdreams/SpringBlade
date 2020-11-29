@@ -60,11 +60,11 @@
             <version>${captcha.version}</version>
         </dependency>
         <!-- MySQL -->
-        <dependency>
+        <!--<dependency>
             <groupId>mysql</groupId>
             <artifactId>mysql-connector-java</artifactId>
             <scope>runtime</scope>
-        </dependency>
+        </dependency>-->
         <!--Zipkin-->
         <!--<dependency>
             <groupId>org.springframework.cloud</groupId>
