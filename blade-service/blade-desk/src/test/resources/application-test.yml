@@ -5,6 +5,6 @@ server:
 #数据源配置
 spring:
   datasource:
-    url: ${blade.datasource.test.url}
-    username: ${blade.datasource.test.username}
-    password: ${blade.datasource.test.password}
+    url: jdbc:mysql://localhost:3306/blade?useSSL=false&useUnicode=true&characterEncoding=utf-8&zeroDateTimeBehavior=convertToNull&transformedBitIsBoolean=true&tinyInt1isBit=false&allowMultiQueries=true&serverTimezone=GMT%2B8
+    username: blade
+    password: blade
