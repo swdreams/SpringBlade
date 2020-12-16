@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="org.springblade.modeling.mapper.OrgSubsidiaryMapper">
+
+    <!-- 通用查询映射结果 -->
+    <resultMap id="orgSubsidiaryResultMap" type="org.springblade.modeling.entity.OrgSubsidiary">
+        <id column="ID" property="id"/>
+        <result column="ORG_ID" property="orgId"/>
+        <result column="ORG_NAME" property="orgName"/>
+        <result column="CHIEF_NAME" property="chiefName"/>
+        <result column="ESTABLISH_DATE" property="establishDate"/>
+        <result column="SUBSIDIARY_STATUS" property="subsidiaryStatus"/>
+    </resultMap>
+
+
+    <select id="selectOrgSubsidiaryPage" resultMap="orgSubsidiaryResultMap">
+        select * from TB_ORG_SUBSIDIARY where is_deleted = 0
+    </select>
+
+</mapper>

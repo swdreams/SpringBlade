@@ -27,17 +27,17 @@ import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
 
 /**
- * 新闻资讯
+ * 诚信信息
  * 实体类
  *
  * @author Blade
  * @since 2020-12-16
  */
 @Data
-@TableName("TB_ORG_NEWS")
+@TableName("TB_ORG_CREDIT")
 @EqualsAndHashCode(callSuper = false)
-@ApiModel(value = "OrgNews对象", description = "新闻资讯")
-public class OrgNews implements Serializable {
+@ApiModel(value = "OrgCredit对象", description = "诚信信息")
+public class OrgCredit implements Serializable {
 
 	private static final long serialVersionUID = 1L;
 
@@ -48,37 +48,18 @@ public class OrgNews implements Serializable {
 	@TableField("ORG_ID")
 	private BigDecimal orgId;
 	/**
-	 * 标题
+	 * 类型
 	 */
-	@ApiModelProperty(value = "标题")
-	@TableField("TITLE")
-	private String title;
-	/**
-	 * 正文
-	 */
-	@ApiModelProperty(value = "正文")
-	@TableField("CONTENTS")
-	private String contents;
-	/**
-	 * 来源
-	 */
-	@ApiModelProperty(value = "来源")
-	@TableField("SOURCE")
-	private String source;
-	/**
-	 * 时间
-	 */
-	@ApiModelProperty(value = "时间")
-	@TableField("CREATED_ON")
-	private String createdOn;
-	/**
-	 * 时间
-	 */
-	@ApiModelProperty(value = "地址")
-	@TableField("CONTENTS_URL")
-	private String contentsUrl;
+	@ApiModelProperty(value = "类型")
+	@TableField("CREDIT_TYPE")
+	private String creditType;
+
 	@TableField("ID")
 	private BigDecimal id;
+
+	@ApiModelProperty(value = "内容")
+	@TableField("CONTENTS")
+	private String contents;
 
 
 }

@@ -20,6 +20,7 @@ import java.math.BigDecimal;
 
 import com.baomidou.mybatisplus.annotation.TableName;
 import org.springblade.core.mp.base.BaseEntity;
+import com.baomidou.mybatisplus.annotation.TableId;
 import com.baomidou.mybatisplus.annotation.TableField;
 import lombok.Data;
 import lombok.EqualsAndHashCode;
@@ -27,17 +28,16 @@ import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
 
 /**
- * 新闻资讯
  * 实体类
  *
  * @author Blade
  * @since 2020-12-16
  */
 @Data
-@TableName("TB_ORG_NEWS")
+@TableName("TB_ORG_SUBSIDIARY")
 @EqualsAndHashCode(callSuper = false)
-@ApiModel(value = "OrgNews对象", description = "新闻资讯")
-public class OrgNews implements Serializable {
+@ApiModel(value = "OrgSubsidiary对象", description = "OrgSubsidiary对象")
+public class OrgSubsidiary implements Serializable {
 
 	private static final long serialVersionUID = 1L;
 
@@ -48,36 +48,34 @@ public class OrgNews implements Serializable {
 	@TableField("ORG_ID")
 	private BigDecimal orgId;
 	/**
-	 * 标题
+	 * 机构名称
 	 */
-	@ApiModelProperty(value = "标题")
-	@TableField("TITLE")
-	private String title;
+	@ApiModelProperty(value = "机构名称")
+	@TableField("ORG_NAME")
+	private String orgName;
 	/**
-	 * 正文
+	 * 负责人
 	 */
-	@ApiModelProperty(value = "正文")
-	@TableField("CONTENTS")
-	private String contents;
+	@ApiModelProperty(value = "负责人")
+	@TableField("CHIEF_NAME")
+	private String chiefName;
 	/**
-	 * 来源
+	 * 成立日期
 	 */
-	@ApiModelProperty(value = "来源")
-	@TableField("SOURCE")
-	private String source;
+	@ApiModelProperty(value = "成立日期")
+	@TableField("ESTABLISH_DATE")
+	private String establishDate;
 	/**
-	 * 时间
+	 * 状态
 	 */
-	@ApiModelProperty(value = "时间")
-	@TableField("CREATED_ON")
-	private String createdOn;
+	@ApiModelProperty(value = "状态")
+	@TableField("SUBSIDIARY_STATUS")
+	private String subsidiaryStatus;
 	/**
-	 * 时间
+	 * 主ID
 	 */
-	@ApiModelProperty(value = "地址")
-	@TableField("CONTENTS_URL")
-	private String contentsUrl;
-	@TableField("ID")
+	@ApiModelProperty(value = "主ID")
+	@TableId("ID")
 	private BigDecimal id;
 
 

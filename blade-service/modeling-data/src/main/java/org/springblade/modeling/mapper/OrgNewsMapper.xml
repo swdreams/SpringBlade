@@ -9,7 +9,7 @@
         <result column="CONTENTS" property="contents"/>
         <result column="SOURCE" property="source"/>
         <result column="CREATED_ON" property="createdOn"/>
-        <result column="CONTENT_URL" property="contentUrl"/>
+        <result column="CONTENTS_URL" property="contentsUrl"/>
         <result column="ID" property="id"/>
     </resultMap>
 

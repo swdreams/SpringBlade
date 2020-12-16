@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="org.springblade.modeling.mapper.OrgAffiliateMapper">
+
+    <!-- 通用查询映射结果 -->
+    <resultMap id="orgAffiliateResultMap" type="org.springblade.modeling.entity.OrgAffiliate">
+        <result column="ORG_ID" property="orgId"/>
+        <result column="AFFILIATE_ORG_ID" property="affiliateOrgId"/>
+        <result column="AFFILIATE_NAME" property="affiliateName"/>
+        <result column="AFFILIATE_URL" property="affiliateUrl"/>
+        <result column="ID" property="id"/>
+    </resultMap>
+
+
+    <select id="selectOrgAffiliatePage" resultMap="orgAffiliateResultMap">
+        select * from TB_ORG_AFFILIATE where is_deleted = 0
+    </select>
+
+</mapper>

@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="org.springblade.modeling.mapper.OrgCreditMapper">
+
+    <!-- 通用查询映射结果 -->
+    <resultMap id="orgCreditResultMap" type="org.springblade.modeling.entity.OrgCredit">
+        <result column="ORG_ID" property="orgId"/>
+        <result column="CREDIT_TYPE" property="creditType"/>
+        <result column="ID" property="id"/>
+        <result column="CONTENTS" property="contents"/>
+    </resultMap>
+
+
+    <select id="selectOrgCreditPage" resultMap="orgCreditResultMap">
+        select * from TB_ORG_CREDIT where is_deleted = 0
+    </select>
+
+</mapper>

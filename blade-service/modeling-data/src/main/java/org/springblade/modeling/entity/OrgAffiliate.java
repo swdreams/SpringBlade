@@ -17,7 +17,6 @@ package org.springblade.modeling.entity;
 
 import java.io.Serializable;
 import java.math.BigDecimal;
-
 import com.baomidou.mybatisplus.annotation.TableName;
 import org.springblade.core.mp.base.BaseEntity;
 import com.baomidou.mybatisplus.annotation.TableField;
@@ -27,58 +26,46 @@ import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
 
 /**
- * 新闻资讯
- * 实体类
+ * 相关机构关联表
+实体类
  *
  * @author Blade
  * @since 2020-12-16
  */
 @Data
-@TableName("TB_ORG_NEWS")
+@TableName("TB_ORG_AFFILIATE")
 @EqualsAndHashCode(callSuper = false)
-@ApiModel(value = "OrgNews对象", description = "新闻资讯")
-public class OrgNews implements Serializable {
+@ApiModel(value = "OrgAffiliate对象", description = "相关机构关联表")
+public class OrgAffiliate implements Serializable {
 
-	private static final long serialVersionUID = 1L;
+    private static final long serialVersionUID = 1L;
 
-	/**
-	 * 机构主ID
-	 */
-	@ApiModelProperty(value = "机构主ID")
-	@TableField("ORG_ID")
-	private BigDecimal orgId;
-	/**
-	 * 标题
-	 */
-	@ApiModelProperty(value = "标题")
-	@TableField("TITLE")
-	private String title;
-	/**
-	 * 正文
-	 */
-	@ApiModelProperty(value = "正文")
-	@TableField("CONTENTS")
-	private String contents;
-	/**
-	 * 来源
-	 */
-	@ApiModelProperty(value = "来源")
-	@TableField("SOURCE")
-	private String source;
-	/**
-	 * 时间
-	 */
-	@ApiModelProperty(value = "时间")
-	@TableField("CREATED_ON")
-	private String createdOn;
-	/**
-	 * 时间
-	 */
-	@ApiModelProperty(value = "地址")
-	@TableField("CONTENTS_URL")
-	private String contentsUrl;
-	@TableField("ID")
-	private BigDecimal id;
+    /**
+     * 机构主ID
+     */
+    @ApiModelProperty(value = "机构主ID")
+    @TableField("ORG_ID")
+  private BigDecimal orgId;
+    /**
+     * 关联机构主ID
+     */
+    @ApiModelProperty(value = "关联机构主ID")
+    @TableField("AFFILIATE_ORG_ID")
+  private BigDecimal affiliateOrgId;
+    /**
+     * 关联机构名称
+     */
+    @ApiModelProperty(value = "关联机构名称")
+    @TableField("AFFILIATE_NAME")
+  private String affiliateName;
+    /**
+     * 关联机构链接
+     */
+    @ApiModelProperty(value = "关联机构链接")
+    @TableField("AFFILIATE_URL")
+  private String affiliateUrl;
+  @TableField("ID")
+  private BigDecimal id;
 
 
 }
