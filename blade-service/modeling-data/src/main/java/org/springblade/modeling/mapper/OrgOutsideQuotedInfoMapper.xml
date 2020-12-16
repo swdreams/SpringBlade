@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="org.springblade.modeling.mapper.OrgOutsideQuotedInfoMapper">
+
+    <!-- 通用查询映射结果 -->
+    <resultMap id="orgOutsideQuotedInfoResultMap" type="org.springblade.modeling.entity.OrgOutsideQuotedInfo">
+        <result column="ORG_ID" property="orgId"/>
+        <result column="QUOTED_TYPE" property="quotedType"/>
+        <result column="QUOTED_URL" property="quotedUrl"/>
+        <result column="QUOTED_SOURCE" property="quotedSource"/>
+        <result column="ID" property="id"/>
+    </resultMap>
+
+
+    <select id="selectOrgOutsideQuotedInfoPage" resultMap="orgOutsideQuotedInfoResultMap">
+        select * from TB_ORG_OUTSIDE_QUOTED_INFO where is_deleted = 0
+    </select>
+
+</mapper>

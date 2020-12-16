@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="org.springblade.modeling.mapper.OrgCourtExecuteMapper">
+
+    <!-- 通用查询映射结果 -->
+    <resultMap id="orgCourtExecuteResultMap" type="org.springblade.modeling.entity.OrgCourtExecute">
+        <result column="STATUS" property="status"/>
+        <result column="ORG_ID" property="orgId"/>
+        <result column="FILLING_DATE" property="fillingDate"/>
+        <result column="CASE_NO" property="caseNo"/>
+        <result column="SUBJECT" property="subject"/>
+        <result column="COURT" property="court"/>
+        <result column="ORG_CODE" property="orgCode"/>
+        <result column="ID" property="id"/>
+    </resultMap>
+
+
+    <select id="selectOrgCourtExecutePage" resultMap="orgCourtExecuteResultMap">
+        select * from TB_ORG_COURT_EXECUTE where is_deleted = 0
+    </select>
+
+</mapper>

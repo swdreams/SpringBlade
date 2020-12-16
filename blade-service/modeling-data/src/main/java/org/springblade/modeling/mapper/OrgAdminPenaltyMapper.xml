@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="org.springblade.modeling.mapper.OrgAdminPenaltyMapper">
+
+    <!-- 通用查询映射结果 -->
+    <resultMap id="orgAdminPenaltyResultMap" type="org.springblade.modeling.entity.OrgAdminPenalty">
+        <result column="ORG_ID" property="orgId"/>
+        <result column="DECISION_DATE" property="decisionDate"/>
+        <result column="DECISION_DOC_NO" property="decisionDocNo"/>
+        <result column="DECISION_TYPE" property="decisionType"/>
+        <result column="DECISION_SUBJECTMATTER" property="decisionSubjectmatter"/>
+        <result column="DECISION_REASON" property="decisionReason"/>
+        <result column="DECISION_RESULT" property="decisionResult"/>
+        <result column="DECISION_PUBLIC_DATE" property="decisionPublicDate"/>
+        <result column="DECISION_STATUS" property="decisionStatus"/>
+        <result column="DECISION_ORG_NAME" property="decisionOrgName"/>
+        <result column="ID" property="id"/>
+    </resultMap>
+
+
+    <select id="selectOrgAdminPenaltyPage" resultMap="orgAdminPenaltyResultMap">
+        select * from TB_ORG_ADMIN_PENALTY where is_deleted = 0
+    </select>
+
+</mapper>

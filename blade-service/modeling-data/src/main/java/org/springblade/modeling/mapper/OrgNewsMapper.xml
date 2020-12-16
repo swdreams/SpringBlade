@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="org.springblade.modeling.mapper.OrgNewsMapper">
+
+    <!-- 通用查询映射结果 -->
+    <resultMap id="orgNewsResultMap" type="org.springblade.modeling.entity.OrgNews">
+        <result column="ORG_ID" property="orgId"/>
+        <result column="TITLE" property="title"/>
+        <result column="CONTENTS" property="contents"/>
+        <result column="SOURCE" property="source"/>
+        <result column="CREATED_ON" property="createdOn"/>
+        <result column="CONTENT_URL" property="contentUrl"/>
+        <result column="ID" property="id"/>
+    </resultMap>
+
+
+    <select id="selectOrgNewsPage" resultMap="orgNewsResultMap">
+        select * from TB_ORG_NEWS where is_deleted = 0
+    </select>
+
+</mapper>

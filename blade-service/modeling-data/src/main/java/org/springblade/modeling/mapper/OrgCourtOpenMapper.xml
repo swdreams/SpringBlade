@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="org.springblade.modeling.mapper.OrgCourtOpenMapper">
+
+    <!-- 通用查询映射结果 -->
+    <resultMap id="orgCourtOpenResultMap" type="org.springblade.modeling.entity.OrgCourtOpen">
+        <result column="ORG_ID" property="orgId"/>
+        <result column="START_DATE" property="startDate"/>
+        <result column="CASE_NO" property="caseNo"/>
+        <result column="CASE_REASON" property="caseReason"/>
+        <result column="PLAINTIFF" property="plaintiff"/>
+        <result column="DEFENDANT" property="defendant"/>
+        <result column="CONTENT" property="content"/>
+        <result column="AREA" property="area"/>
+        <result column="DEPARTMENT" property="department"/>
+        <result column="CHIEF_JUDGE" property="chiefJudge"/>
+        <result column="COURT" property="court"/>
+        <result column="COURT2" property="court2"/>
+        <result column="ID" property="id"/>
+        <result column="CASE_URL" property="caseUrl"/>
+    </resultMap>
+
+
+    <select id="selectOrgCourtOpenPage" resultMap="orgCourtOpenResultMap">
+        select * from TB_ORG_COURT_OPEN where is_deleted = 0
+    </select>
+
+</mapper>
