@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="org.springblade.modeling.mapper.StockExchangeDailyPriceMapper">
+
+    <!-- 通用查询映射结果 -->
+    <resultMap id="stockExchangeDailyPriceResultMap" type="org.springblade.modeling.entity.StockExchangeDailyPrice">
+        <result column="FINAN_INSTRUCODE" property="finanInstrucode"/>
+        <result column="ASSET_TYPE" property="assetType"/>
+        <result column="MARKET_TYPE" property="marketType"/>
+        <result column="STOCK_NAME" property="stockName"/>
+        <result column="EXC_DATE" property="excDate"/>
+        <result column="CLOSING_PRICE" property="closingPrice"/>
+        <result column="SETTLEMENT_PRICE" property="settlementPrice"/>
+    </resultMap>
+
+
+    <select id="selectStockExchangeDailyPricePage" resultMap="stockExchangeDailyPriceResultMap">
+        select * from TB_STOCK_EXCHANGE_DAILY_PRICE where
+            <if test="stockExchangeDailyPrice.finanInstrucode != null">
+                AND FINAN_INSTRUCODE like concat('%', #{stockExchangeDailyPrice.finanInstrucode}, '%')
+            </if>
+            AND STOCK_NAME like concat('%', #{stockExchangeDailyPrice.stockName}, '%')
+            AND EXC_DATE like concat('%', #{stockExchangeDailyPrice.excDate}, '%')
+    </select>
+
+</mapper>

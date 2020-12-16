@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="org.springblade.modeling.mapper.StockIndexFutureMapper">
+
+    <!-- 通用查询映射结果 -->
+    <resultMap id="stockIndexFutureResultMap" type="org.springblade.modeling.entity.StockIndexFuture">
+        <result column="FINAN_INSTRUCODE" property="finanInstrucode"/>
+        <result column="ASSET_TYPE" property="assetType"/>
+        <result column="MARKET_TYPE" property="marketType"/>
+        <result column="CONTRACTNAME" property="contractname"/>
+    </resultMap>
+
+
+    <select id="selectStockIndexFuturePage" resultMap="stockIndexFutureResultMap">
+        select * from TB_STOCK_INDEX_FUTURE where is_deleted = 0
+            AND FINAN_INSTRUCODE like concat('%', #{stockIndexFuture.finanInstrucode}, '%')
+            AND CONTRACTNAME like concat('%', #{stockIndexFuture.contractname}, '%')
+    </select>
+
+</mapper>

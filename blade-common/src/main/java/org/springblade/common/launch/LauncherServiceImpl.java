@@ -36,6 +36,9 @@ public class LauncherServiceImpl implements LauncherService {
 		props.setProperty("spring.cloud.nacos.config.server-addr", LauncherConstant.nacosAddr(profile));
 		props.setProperty("spring.cloud.sentinel.transport.dashboard", LauncherConstant.sentinelAddr(profile));
 		props.setProperty("spring.zipkin.base-url", LauncherConstant.zipkinAddr(profile));
+
+		//LIKI
+		props.setProperty("druid.validationQuery", "select 1 from dual");
 	}
 
 }

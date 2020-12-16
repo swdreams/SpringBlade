@@ -1,0 +1,13 @@
+#服务器端口
+server:
+  port: 8801
+
+#数据源配置
+spring:
+  autoconfigure:
+    exclude: com.alibaba.druid.spring.boot.autoconfigure.DruidDataSourceAutoConfigure
+  datasource:
+    driver-class-name: oracle.jdbc.OracleDriver
+    url: ${blade.datasource.dev.url}
+    username: ${blade.datasource.dev.username}
+    password: ${blade.datasource.dev.password}

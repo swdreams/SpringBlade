@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="org.springblade.modeling.mapper.BondRatingMapper">
+
+    <!-- 通用查询映射结果 -->
+    <resultMap id="bondRatingResultMap" type="org.springblade.modeling.entity.BondRating">
+        <result column="BOND_CODE" property="bondCode"/>
+        <result column="ASSET_TYPE" property="assetType"/>
+        <result column="MARKET_TYPE" property="marketType"/>
+        <result column="RATE_TYPE" property="rateType"/>
+        <result column="RATE_DATE" property="rateDate"/>
+        <result column="LEVEL_VALUE" property="levelValue"/>
+        <result column="RATE_ORG_NAME" property="rateOrgName"/>
+        <result column="ID" property="id"/>
+    </resultMap>
+
+
+    <select id="selectBondRatingPage" resultMap="bondRatingResultMap">
+        select * from TB_BOND_RATING where is_deleted = 0
+    </select>
+
+</mapper>

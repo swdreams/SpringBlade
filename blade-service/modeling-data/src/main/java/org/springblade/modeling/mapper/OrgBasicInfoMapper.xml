@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="org.springblade.modeling.mapper.OrgBasicInfoMapper">
+
+    <!-- 通用查询映射结果 -->
+    <resultMap id="orgBasicInfoResultMap" type="org.springblade.modeling.entity.OrgBasicInfo">
+        <result column="ORG_MAIN_ID" property="orgMainId"/>
+        <result column="ORG_NAME" property="orgName"/>
+        <result column="ORG_NAME_CH_ALL" property="orgNameChAll"/>
+        <result column="ORG_NAME_ENG_ALL" property="orgNameEngAll"/>
+        <result column="ORG_NATURE" property="orgNature"/>
+        <result column="ORG_INCORP_DATE" property="orgIncorpDate"/>
+        <result column="ORG_REGISTER_ADDR" property="orgRegisterAddr"/>
+        <result column="ORG_REGISTER_CAPITAL" property="orgRegisterCapital"/>
+        <result column="ORG_PAIDIN_CAPITAL" property="orgPaidinCapital"/>
+        <result column="ORG_ORG_CODE" property="orgOrgCode"/>
+        <result column="ORG_UNIFIED_SOCIAL_CREDITCODE" property="orgUnifiedSocialCreditcode"/>
+        <result column="ORG_NAME_BEFORE" property="orgNameBefore"/>
+        <result column="ORG_LEGAL_PERSON" property="orgLegalPerson"/>
+        <result column="ORG_REAL_CONTROLLER" property="orgRealController"/>
+        <result column="ORG_OFFICAL_SITE_ADDR" property="orgOfficalSiteAddr"/>
+        <result column="ORG_CONTACT_PHONE" property="orgContactPhone"/>
+        <result column="ORG_CONTACT_MAIL" property="orgContactMail"/>
+        <result column="ORG_CONTACT_FAX" property="orgContactFax"/>
+        <result column="ORG_STATUS" property="orgStatus"/>
+        <result column="ORG_LOGO_PATH" property="orgLogoPath"/>
+        <result column="ORG_INVEST_ENABLE" property="orgInvestEnable"/>
+        <result column="ORG_CFA_REGNO" property="orgCfaRegno"/>
+        <result column="ORG_CFA_REGDATE" property="orgCfaRegdate"/>
+        <result column="ORG_CFA_MEMBERFLAG" property="orgCfaMemberflag"/>
+        <result column="ORG_CFA_MEMBERDATE" property="orgCfaMemberdate"/>
+        <result column="ORG_CFA_MEMBERTYPE" property="orgCfaMembertype"/>
+        <!--<result column="ORG_CFA_MEMBERLEGAL" property="orgCfaMemberlegal"/>-->
+        <result column="IS_DELETED" property="isDeleted"/>
+    </resultMap>
+
+    <select id="selectOrgBasicInfoPage" resultMap="orgBasicInfoResultMap">
+        select
+            a.*
+        from TB_ORG_BASIC_INFO a
+        where is_deleted = 0
+            <if test="orgBasicInfo.orgName!= null">
+                AND (a.ORG_NAME like concat(concat('%', #{orgBasicInfo.orgName}),'%') OR a.ORG_NAME_CH_ALL like concat(concat('%', #{orgBasicInfo.orgName}),'%'))
+            </if>
+            <if test="orgBasicInfo.orgIncorpDate!= null">
+                AND a.ORG_INCORP_DATE like concat(concat('%', #{orgBasicInfo.orgIncorpDate}),'%')
+            </if>
+            <if test="orgBasicInfo.orgStatus!= null">
+                AND a.ORG_STATUS like concat(concat('%', #{orgBasicInfo.orgStatus}),'%')
+            </if>
+    </select>
+
+</mapper>

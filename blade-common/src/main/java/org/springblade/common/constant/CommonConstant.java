@@ -1,5 +1,10 @@
 package org.springblade.common.constant;
 
+import org.springblade.core.launch.constant.AppConstant;
+
+import java.util.HashMap;
+import java.util.Map;
+
 /**
  * 通用常量
  *
@@ -32,5 +37,11 @@ public interface CommonConstant {
 	 * 默认密码
 	 */
 	String DEFAULT_PASSWORD = "123456";
+
+
+	/**
+	 * Modeling application name.
+	 */
+	String APPLICATION_MODELING_NAME = "modeling-data";
 
 }

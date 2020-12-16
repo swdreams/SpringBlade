@@ -1,0 +1,67 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="org.springblade.modeling.mapper.PersonMapper">
+
+    <!-- 通用查询映射结果 -->
+    <resultMap id="personResultMap" type="org.springblade.modeling.entity.Person">
+        <id column="ID" property="id"/>
+        <result column="NAME" property="name"/>
+        <result column="SEX" property="sex"/>
+        <result column="START_DATE" property="startDate"/>
+        <result column="ORG_ID" property="orgId"/>
+        <result column="POSITION" property="position"/>
+        <result column="PRO_BACKGROUND" property="proBackground"/>
+        <result column="GRAD_SCHOOL" property="gradSchool"/>
+        <result column="MAX_EDUCATION" property="maxEducation"/>
+        <result column="PROFILE" property="profile"/>
+        <result column="PERSONAL_HONOR" property="personalHonor"/>
+        <result column="AVATAR_URL" property="avatarUrl"/>
+    </resultMap>
+
+    <resultMap id="personResultVOMap" type="org.springblade.modeling.vo.PersonVO">
+        <id column="ID" property="id"/>
+        <result column="NAME" property="name"/>
+        <result column="SEX" property="sex"/>
+        <result column="START_DATE" property="startDate"/>
+        <result column="ORG_ID" property="orgId"/>
+        <result column="POSITION" property="position"/>
+        <result column="PRO_BACKGROUND" property="proBackground"/>
+        <result column="GRAD_SCHOOL" property="gradSchool"/>
+        <result column="MAX_EDUCATION" property="maxEducation"/>
+        <result column="PROFILE" property="profile"/>
+        <result column="PERSONAL_HONOR" property="personalHonor"/>
+        <result column="AVATAR_URL" property="avatarUrl"/>
+
+        <result column="sexName" property="sexName"/>
+        <result column="ORG_NAME" property="orgName"/>
+    </resultMap>
+
+
+    <select id="selectPersonPage" resultMap="personResultVOMap">
+        SELECT
+            p.*,
+            (CASE WHEN p.sex = 1 THEN '男' ELSE '女' END) sexName,
+            org.ORG_NAME
+        FROM TB_PERSON p
+        LEFT JOIN TB_ORG_BASIC_INFO org ON org.ORG_MAIN_ID = p.ORG_ID
+        <where>
+            <if test="person.name != null">
+                AND p.NAME like concat(concat('%', #{person.name}),'%')
+            </if>
+        </where>
+    </select>
+
+    <select id="selectPersonDetail" resultMap="personResultVOMap">
+        SELECT
+            p.*,
+            (CASE WHEN p.sex = 1 THEN '男' ELSE '女' END) sexName,
+            org.ORG_NAME
+        FROM TB_PERSON p
+        LEFT JOIN TB_ORG_BASIC_INFO org ON org.ORG_MAIN_ID = p.ORG_ID
+        WHERE ROWNUM = 1
+            <if test="id != null">
+                AND p.ID = #{id}
+            </if>
+    </select>
+
+</mapper>

@@ -57,7 +57,23 @@
 
     <select id="lazyList" resultMap="regionVOResultMap">
         SELECT
-            region.*,
+            region.CODE,
+            region.PARENT_CODE,
+            region.ANCESTORS,
+            region.NAME,
+            region.PROVINCE_CODE,
+            region.PROVINCE_NAME,
+            region.CITY_CODE,
+            region.CITY_NAME,
+            region.DISTRICT_CODE,
+            region.REMARK,
+            region.SORT,
+            region.VILLAGE_NAME,
+            region.VILLAGE_CODE,
+            region.TOWN_NAME,
+            region.TOWN_CODE,
+            region.DISTRICT_NAME,
+            region.LEVEL AS "LEVEL",
             ( SELECT CASE WHEN count( 1 ) > 0 THEN 1 ELSE 0 END FROM blade_region WHERE parent_code = region.code ) AS "has_children"
         FROM
             blade_region region

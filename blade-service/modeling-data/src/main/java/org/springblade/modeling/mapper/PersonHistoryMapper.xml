@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="org.springblade.modeling.mapper.PersonHistoryMapper">
+
+    <!-- 通用查询映射结果 -->
+    <resultMap id="personHistoryResultMap" type="org.springblade.modeling.entity.PersonHistory">
+        <result column="PERSON_ID" property="personId"/>
+        <result column="PER_DATE" property="perDate"/>
+        <result column="ORG_UNIT" property="orgUnit"/>
+        <result column="ORG_DEPARTMENT" property="orgDepartment"/>
+        <result column="POSITION" property="position"/>
+        <result column="ID" property="id"/>
+    </resultMap>
+
+
+    <select id="selectPersonHistoryPage" resultMap="personHistoryResultMap">
+        select * from TB_PERSON_HISTORY where is_deleted = 0
+    </select>
+
+</mapper>

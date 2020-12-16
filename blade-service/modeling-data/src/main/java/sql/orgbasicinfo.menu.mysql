@@ -1,0 +1,11 @@
+INSERT INTO `blade_menu`(`parent_id`, `code`, `name`, `alias`, `path`, `source`, `sort`, `category`, `action`, `is_open`, `remark`, `is_deleted`)
+VALUES (0, 'orgbasicinfo', '', 'menu', '/modeling/orgbasicinfo', NULL, 1, 1, 0, 1, NULL, 0);
+set @parentid = (SELECT LAST_INSERT_ID());
+INSERT INTO `blade_menu`(`parent_id`, `code`, `name`, `alias`, `path`, `source`, `sort`, `category`, `action`, `is_open`, `remark`, `is_deleted`)
+VALUES (@parentid, 'orgbasicinfo_add', '新增', 'add', '/modeling/orgbasicinfo/add', 'plus', 1, 2, 1, 1, NULL, 0);
+INSERT INTO `blade_menu`(`parent_id`, `code`, `name`, `alias`, `path`, `source`, `sort`, `category`, `action`, `is_open`, `remark`, `is_deleted`)
+VALUES (@parentid, 'orgbasicinfo_edit', '修改', 'edit', '/modeling/orgbasicinfo/edit', 'form', 2, 2, 1, 2, NULL, 0);
+INSERT INTO `blade_menu`(`parent_id`, `code`, `name`, `alias`, `path`, `source`, `sort`, `category`, `action`, `is_open`, `remark`, `is_deleted`)
+VALUES (@parentid, 'orgbasicinfo_delete', '删除', 'delete', '/api/blade-modeling/orgbasicinfo/remove', 'delete', 3, 2, 1, 3, NULL, 0);
+INSERT INTO `blade_menu`(`parent_id`, `code`, `name`, `alias`, `path`, `source`, `sort`, `category`, `action`, `is_open`, `remark`, `is_deleted`)
+VALUES (@parentid, 'orgbasicinfo_view', '查看', 'view', '/modeling/orgbasicinfo/view', 'file-text', 4, 2, 1, 2, NULL, 0);

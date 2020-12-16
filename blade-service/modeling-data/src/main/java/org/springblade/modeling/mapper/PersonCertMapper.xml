@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="org.springblade.modeling.mapper.PersonCertMapper">
+
+    <!-- 通用查询映射结果 -->
+    <resultMap id="personCertResultMap" type="org.springblade.modeling.entity.PersonCert">
+        <id column="ID" property="id"/>
+        <result column="PERSON_ID" property="personId"/>
+        <result column="CERT_NUMBER" property="certNumber"/>
+        <result column="CERT_STATUS" property="certStatus"/>
+        <result column="CERT_TYPE" property="certType"/>
+        <result column="CERT_DATE" property="certDate"/>
+        <result column="CER_MODIFIED_DATE" property="cerModifiedDate"/>
+    </resultMap>
+
+
+    <select id="selectPersonCertPage" resultMap="personCertResultMap">
+        select * from TB_PERSON_CERT where is_deleted = 0
+    </select>
+
+</mapper>

@@ -26,6 +26,7 @@ import org.springblade.system.entity.Dict;
 import org.springblade.system.service.IDictService;
 import org.springblade.system.vo.DictVO;
 
+import java.util.HashMap;
 import java.util.List;
 import java.util.stream.Collectors;
 
