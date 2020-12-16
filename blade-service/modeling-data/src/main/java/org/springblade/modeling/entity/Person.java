@@ -19,6 +19,8 @@ import java.io.Serializable;
 import java.math.BigDecimal;
 
 import com.baomidou.mybatisplus.annotation.TableName;
+import com.fasterxml.jackson.databind.annotation.JsonSerialize;
+import com.fasterxml.jackson.databind.ser.std.ToStringSerializer;
 import org.springblade.core.mp.base.BaseEntity;
 import com.baomidou.mybatisplus.annotation.TableId;
 import com.baomidou.mybatisplus.annotation.TableField;
@@ -47,7 +49,8 @@ public class Person implements Serializable {
 	 */
 	@ApiModelProperty(value = "人物主ID")
 	@TableId("ID")
-	private BigDecimal id;
+	@JsonSerialize(using =ToStringSerializer.class)
+	private Long id;
 	/**
 	 * 姓名
 	 */
@@ -59,7 +62,7 @@ public class Person implements Serializable {
 	 */
 	@ApiModelProperty(value = "姓名")
 	@TableField("SEX")
-	private BigDecimal sex;
+	private Integer sex;
 	/**
 	 * 从业日期
 	 */
@@ -71,7 +74,8 @@ public class Person implements Serializable {
 	 */
 	@ApiModelProperty(value = "现任机构主ID")
 	@TableField("ORG_ID")
-	private BigDecimal orgId;
+	@JsonSerialize(using =ToStringSerializer.class)
+	private Long orgId;
 	/**
 	 * 当前职位
 	 */
@@ -115,5 +119,20 @@ public class Person implements Serializable {
 	@ApiModelProperty(value = "头像")
 	@TableField("AVATAR_URL")
 	private String avatarUrl;
+
+
+	/**
+	 * 是否有基金从业资格
+	 */
+	@ApiModelProperty(value = "是否有基金从业资格")
+	@TableField("FUND_QUALIFICATION")
+	private String fundQualification;
+
+	/**
+	 * 资格获取方式
+	 */
+	@ApiModelProperty(value = "资格获取方式")
+	@TableField("OBTAIN_WAY")
+	private String obtainWay;
 
 }

@@ -79,6 +79,14 @@ public class PersonController extends BladeController {
 		return R.data(pages);
 	}
 
+	@GetMapping("/listInOrg")
+	@ApiOperationSupport(order = 2)
+	@ApiOperation(value = "分页", notes = "传入person")
+	public R<IPage<PersonVO>> listInOrg(PersonVO person, Query query) {
+		IPage<PersonVO> pages = personService.selectPersonInOrgPage(Condition.getPage(query), person.getOrgId());
+		return R.data(pages);
+	}
+
 	/**
 	* 自定义分页 基础信息
 

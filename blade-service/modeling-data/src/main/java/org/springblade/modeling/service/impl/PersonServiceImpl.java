@@ -43,6 +43,12 @@ public class PersonServiceImpl extends ServiceImpl<PersonMapper, Person> impleme
 	}
 
 	@Override
+	public IPage<PersonVO> selectPersonInOrgPage(IPage<PersonVO> page, Long orgId) {
+		return page.setRecords(baseMapper.selectPersonInOrg(page, orgId));
+	}
+
+
+	@Override
 	public boolean deleteLogic(@NotEmpty List<Long> ids) {
 		return false;
 	}

@@ -69,7 +69,7 @@ public class PersonCertController extends BladeController {
 	@GetMapping("/list")
     @ApiOperationSupport(order = 2)
 	@ApiOperation(value = "分页", notes = "传入personCert")
-	public R<IPage<PersonCertVO>> list(PersonCert personCert, Query query) {
+	public R<IPage<PersonCertVO>> liPst(PersonCert personCert, Query query) {
 		IPage<PersonCert> pages = personCertService.page(Condition.getPage(query), Condition.getQueryWrapper(personCert));
 		return R.data(PersonCertWrapper.build().pageVO(pages));
 	}

@@ -64,4 +64,14 @@
             </if>
     </select>
 
+    <select id="selectPersonInOrg" resultMap="personResultVOMap">
+        SELECT
+        p.*,
+        (CASE WHEN p.sex = 1 THEN '男' ELSE '女' END) sexName,
+        org.ORG_NAME
+        FROM TB_PERSON p
+            INNER JOIN TB_ORG_PERSON_MAP m ON p.ID = m.PERSON_ID
+            LEFT JOIN TB_ORG_BASIC_INFO org ON org.ORG_MAIN_ID = m.ORG_ID
+        WHERE m.ORG_ID = #{orgId}
+    </select>
 </mapper>

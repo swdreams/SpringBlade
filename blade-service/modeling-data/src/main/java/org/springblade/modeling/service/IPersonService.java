@@ -15,6 +15,7 @@
  */
 package org.springblade.modeling.service;
 
+import org.apache.ibatis.annotations.Param;
 import org.springblade.modeling.entity.Person;
 import org.springblade.modeling.vo.PersonVO;
 import org.springblade.core.mp.base.BaseService;
@@ -22,7 +23,7 @@ import com.baomidou.mybatisplus.core.metadata.IPage;
 
 /**
  * 基础信息
- 服务类
+ * 服务类
  *
  * @author Blade
  * @since 2020-12-15
@@ -40,4 +41,5 @@ public interface IPersonService extends BaseService<Person> {
 
 	PersonVO selectPersonDetail(PersonVO person);
 
+	IPage<PersonVO> selectPersonInOrgPage(IPage<PersonVO> page, @Param("orgId") Long orgId);
 }

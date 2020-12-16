@@ -39,6 +39,10 @@ public interface PersonMapper extends BaseMapper<Person> {
 	 */
 	List<PersonVO> selectPersonPage(IPage page, PersonVO person);
 
+	List<PersonVO> selectPersonInOrg(IPage page, Long orgId);
+
+
 	PersonVO selectPersonDetail(PersonVO person);
+
 
 }
